@@ -1,4 +1,4 @@
-import { CreatePost } from "~/app/_components/create-post";
+import { EnterUserName } from "~/app/_components/enter-user-name";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
 function CrudShowcase() {
   return (
     <div className="w-full max-w-xs">
-      <CreatePost />
+      <EnterUserName />
     </div>
   );
 }

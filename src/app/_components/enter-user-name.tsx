@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import { api } from "~/trpc/react";
 
-export function CreatePost() {
+export function EnterUserName() {
   const router = useRouter();
   const [name, setName] = useState("");
 
