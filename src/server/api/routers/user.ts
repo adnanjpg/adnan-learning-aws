@@ -2,12 +2,13 @@ import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { createConnection } from "mysql";
-import { env } from "~/env.mjs";
+// import { env } from "~/env.mjs";
 
 const getConnection = async () => {
+  const env = process.env;
   const con = createConnection({
     host: env.MYDB_HOST,
-    port: env.MYDB_PORT,
+    port: parseInt(env.MYDB_PORT!),
     user: env.MYDB_USER,
     password: env.MYDB_PASS,
     database: env.MYDB_NAME,
