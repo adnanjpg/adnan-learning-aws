@@ -84,32 +84,6 @@ export const userRouter = createTRPCRouter({
   addName: publicProcedure
     .input(z.object({ name: z.string() }))
     .mutation(async ({ input }) => {
-      const con = createConnection({
-        host: env.MYDB_HOST,
-        port: env.MYDB_PORT,
-        user: env.MYDB_USER,
-        password: env.MYDB_PASS,
-        database: env.MYDB_NAME,
-      });
-
-      await new Promise((resolve, reject) => {
-        con.connect((err) => {
-          if (err) {
-            console.error("db.connect error", err);
-
-            reject(err);
-
-            con.end();
-
-            return;
-          }
-
-          console.log("Connected!");
-
-          resolve("Connected!");
-        });
-      });
-
       await executeQuery(`INSERT INTO users (name) VALUES ('${input.name}')`);
 
       return input;
