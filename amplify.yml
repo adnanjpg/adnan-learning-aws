@@ -6,6 +6,8 @@ frontend:
         - yarn install
     build:
       commands:
+        # https://docs.aws.amazon.com/amplify/latest/userguide/ssr-environment-variables.html
+        - env | grep -e MYDB_HOST -e MYDB_PORT -e MYDB_USER -e MYDB_PASS -e MYDB_NAME >> .env.production
         - yarn run build
   artifacts:
     baseDirectory: .next
