@@ -11,8 +11,7 @@ export function EnterUserName() {
 
   const addName = api.user.addName.useMutation({
     onSuccess: () => {
-      router.refresh();
-      setName("");
+      router.push("/upload-image");
     },
   });
 
